@@ -1,6 +1,6 @@
 # AI-QuantumMechanic
 
-A prototype LLM agent that solves graduate-level quantum mechanics problems through tool orchestration. Built with [LangGraph](https://github.com/langchain-ai/langgraph) and powered by Anthropic's Claude Sonnet 4.5, the agent derives solutions step-by-step using symbolic and numerical tools rather than recalling formulas from memory. The agent is instructed to always attempt an analytical solution first, falling back to numerical methods only when necessary.
+An LLM agent that solves graduate-level quantum mechanics problems through tool orchestration. Built with [LangGraph](https://github.com/langchain-ai/langgraph) and powered by Anthropic's Claude Sonnet 4.5, the agent derives solutions step-by-step using symbolic and numerical tools rather than recalling formulas from memory. The agent is instructed to always attempt an analytical solution first, falling back to numerical methods only when necessary.
 
 ## Architecture
 
