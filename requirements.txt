@@ -1,0 +1,8 @@
+langgraph
+langchain-core
+anthropic
+sympy
+scipy
+numpy
+matplotlib
+python-dotenv
