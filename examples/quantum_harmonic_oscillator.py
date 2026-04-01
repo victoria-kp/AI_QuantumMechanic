@@ -9,16 +9,16 @@ The agent derives energy eigenvalues, normalized wavefunctions, and
 probability densities for the first three levels entirely through tools.
 
 Run from the repo root:
-    python -m AI_QuantumMechanic.examples.quantum_harmonic_oscillator
+    python -m examples.quantum_harmonic_oscillator
 """
 
 import sys
 from pathlib import Path
 
-# Allow running as a standalone script from AI_QuantumMechanic/
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+# Allow running as a standalone script
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from AI_QuantumMechanic.agent.graph import build_graph
+from agent.graph import build_graph
 from langchain_core.messages import HumanMessage, AIMessage, ToolMessage
 
 # ── Problem statement ────────────────────────────────────────────────

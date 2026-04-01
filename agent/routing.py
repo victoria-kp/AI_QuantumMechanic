@@ -1,6 +1,6 @@
 """Routing functions for LangGraph conditional edges."""
 from .state import AgentState
-from ..config import MAX_RETRIES
+from config import MAX_RETRIES
 
 
 def route_after_reasoning(state: AgentState) -> str:

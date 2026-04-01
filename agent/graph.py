@@ -8,12 +8,12 @@ from .state import AgentState
 from .prompts import SYSTEM_PROMPT
 from .routing import route_after_reasoning, route_after_checker
 from .sanitizer import sanitize_model_text
-from ..tools.definitions import TOOLS
-from ..tools.symbolic_math import run_symbolic_math
-from ..tools.numerical_compute import run_numerical_compute
-from ..tools.plot_results import run_plot
-from ..tools.equations import run_lookup_equation
-from ..config import MODEL, ANTHROPIC_API_KEY, MAX_RETRIES, MAX_TOOL_CALLS
+from tools.definitions import TOOLS
+from tools.symbolic_math import run_symbolic_math
+from tools.numerical_compute import run_numerical_compute
+from tools.plot_results import run_plot
+from tools.equations import run_lookup_equation
+from config import MODEL, ANTHROPIC_API_KEY, MAX_RETRIES, MAX_TOOL_CALLS
 
 client = Anthropic(api_key=ANTHROPIC_API_KEY)
 
@@ -252,9 +252,9 @@ def checker_node(state: AgentState) -> dict:
     If any fail, increment retry_count and add feedback message.
     On max retries, apply the sanitizer as a fallback and accept.
     """
-    from ..checkers.normalization import extract_and_check_normalizations
-    from ..checkers.physical_sanity import extract_and_check_sanity
-    from ..checkers.expression_sourcing import extract_and_check_expression_sourcing
+    from checkers.normalization import extract_and_check_normalizations
+    from checkers.physical_sanity import extract_and_check_sanity
+    from checkers.expression_sourcing import extract_and_check_expression_sourcing
 
     checks_passed = True
     feedback = []
@@ -371,5 +371,5 @@ def run_agent(problem: str) -> AgentState:
         "tool_history": [],
     }
 
-    final_state = app.invoke(initial_state)
+    final_state = app.invoke(initial_state, config={"recursion_limit": 200})
     return final_state

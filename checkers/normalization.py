@@ -135,7 +135,7 @@ def _check_symbolic_normalizations(messages, tolerance=0.05):
     checks whether the result equals 1.
     """
     import sympy as sp
-    from ..tools.expression_registry import get as _registry_get
+    from tools.expression_registry import get as _registry_get
 
     # 1. Collect abs_squared expression keys
     abs_sq_keys = set()
@@ -343,7 +343,7 @@ def extract_and_check_normalizations(messages, tolerance: float = 0.05) -> dict:
         if ("stored_as" in result
                 and isinstance(result.get("stored_as"), str)
                 and result.get("n_variables")):
-            from ..tools.numerical_compute import get_data
+            from tools.numerical_compute import get_data
             data = get_data(result["stored_as"])
             if data is not None:
                 x = np.asarray(data["x"])

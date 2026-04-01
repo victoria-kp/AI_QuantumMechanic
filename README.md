@@ -144,6 +144,76 @@ python-dotenv
 
 Results (logs and figures) are saved in the `outputs/` folder. To test the agent on a different problem, modify the `PROBLEM` string in any example script.
 
+## API Server
+
+The agent can be run as an HTTP API using FastAPI, allowing any client (browser, notebook, CLI) to submit problems and receive structured JSON responses.
+
+### Run Locally
+
+```bash
+pip install -r requirements.txt fastapi uvicorn
+uvicorn app:app --host 0.0.0.0 --port 8000
+```
+
+The server starts at `http://localhost:8000`. Interactive API docs are available at `http://localhost:8000/docs`.
+
+### Endpoints
+
+- **`GET /health`** — Returns `{"status": "ok"}`.
+- **`POST /solve`** — Accepts a JSON body with `api_key` (your Anthropic API key) and `problem` (the question). Returns the agent's solution with step-by-step trace, figures (base64-encoded), and validation results.
+
+### Example Request
+
+```bash
+curl -X POST http://localhost:8000/solve \
+  -H "Content-Type: application/json" \
+  -d '{
+    "api_key": "sk-ant-...",
+    "problem": "Solve the Schrodinger equation for the infinite square well (particle in a box) with walls at x=0 and x=a. The energy eigenvalues are positive. Find the analytical wavefunctions for the first three energy levels (n=1,2,3). Normalize them and plot the probability densities |psi_n(x)|^2 for all three levels on a single figure."
+  }'
+```
+
+The API key is used for that single request and then discarded. It is never logged or stored.
+
+### Run with Docker
+
+```bash
+docker build -t qm-agent .
+docker run -p 8000:8000 qm-agent
+```
+
+## Deploy to GCP
+
+### Prerequisites
+
+1. A GCP account with billing enabled ([free $300 credits](https://cloud.google.com/free) for new accounts)
+2. `gcloud` CLI installed: `brew install --cask google-cloud-sdk`
+3. Authenticated and project set:
+   ```bash
+   gcloud auth login
+   gcloud config set project YOUR_PROJECT_ID
+   ```
+
+### Deploy
+
+```bash
+bash deploy.sh
+```
+
+This creates an e2-medium VM in `us-west1-a`, installs Docker, clones the repo, builds the container, and starts the server. The script prints the external IP when done.
+
+### Teardown
+
+Stop or delete the VM when done to avoid charges:
+
+```bash
+# Stop VM (pause billing, disk still charged ~$0.80/month)
+gcloud compute instances stop qm-agent-vm --zone=us-west1-a
+
+# Delete everything (all billing stops)
+bash deploy.sh teardown
+```
+
 ## Contact
 
 This agent was designed by Victoria Knapp Perez ([1victoriakp@gmail.com](mailto:1victoriakp@gmail.com)). Feel free to reach out with questions or bug reports.

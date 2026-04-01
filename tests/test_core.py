@@ -2,9 +2,9 @@
 import pytest
 import sympy as sp
 
-from AI_QuantumMechanic.tools import expression_registry as reg
-from AI_QuantumMechanic.tools.symbolic_math import run_symbolic_math
-from AI_QuantumMechanic.tools.equations import run_lookup_equation
+from tools import expression_registry as reg
+from tools.symbolic_math import run_symbolic_math
+from tools.equations import run_lookup_equation
 
 
 @pytest.fixture(autouse=True)
