@@ -1,7 +1,5 @@
 # AI-QuantumMechanic
 
-![Demo Screenshot](outputs/demo-screenshot.png)
-
 A prototype LLM agent that solves graduate-level quantum mechanics problems through tool orchestration. Built with [LangGraph](https://github.com/langchain-ai/langgraph) and powered by Anthropic's Claude Sonnet 4.5, the agent derives solutions step-by-step using symbolic and numerical tools rather than recalling formulas from memory. The agent is instructed to always attempt an analytical solution first, falling back to numerical methods only when necessary.
 
 ## Architecture
@@ -148,7 +146,9 @@ Results (logs and figures) are saved in the `outputs/` folder. To test the agent
 
 ## API Server
 
-The agent can be run as an HTTP API using FastAPI, allowing any client (browser, notebook, CLI) to submit problems and receive structured JSON responses.
+The agent can be run as an HTTP API using FastAPI, allowing any client (browser, notebook, CLI) to submit problems and receive structured JSON responses. Below is the web interface solving the infinite square well problem:
+
+![Web UI Demo](outputs/demo-screenshot.png)
 
 ### Run Locally
 
