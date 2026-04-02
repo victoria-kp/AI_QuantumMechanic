@@ -34,8 +34,20 @@ SciPy/NumPy-based operations for problems that cannot be solved analytically:
 ### Plot Results (`tools/plot_results.py`)
 Matplotlib wrapper for generating wavefunction and probability density plots.
 
-### Equation Catalog (`tools/equations.py`)
-A read-only catalog of well-known physics equations (Schrodinger equation, harmonic oscillator potential, etc.) that serves as the starting point for derivations. The agent retrieves equations by key and assembles them through substitution. It never sees the raw formula strings directly.
+### Equation Catalog with RAG (`tools/equations.py`)
+A catalog of 43 quantum mechanics equations across 7 categories, stored as JSON files in `data/equations/`. The agent can browse, retrieve, or **semantically search** the catalog using natural language via ChromaDB vector embeddings.
+
+**How it works:**
+1. On startup, `tools/catalog_loader.py` loads and merges all JSON files from `data/equations/` into a single in-memory catalog.
+2. `tools/vector_store.py` indexes each equation's `search_text` field into a ChromaDB collection using the all-MiniLM-L6-v2 ONNX embedding model (runs locally, no API calls).
+3. The `lookup_equation` tool exposes three operations:
+   - **list**: Browse all equations, optionally filtered by tag
+   - **get**: Retrieve metadata for a specific equation by key
+   - **search**: Semantic search with natural language (e.g., "particle in a box" returns `infinite_square_well_potential`)
+
+The agent never sees raw SymPy expression strings from search results. To use an equation, it must call `symbolic_math(operation="substitute", equation_key=...)`.
+
+**Equation categories:** `schrodinger.json`, `potentials.json`, `operators.json`, `hydrogen.json`, `perturbation.json`, `spin.json`, `scattering.json`
 
 ### Expression Registry (`tools/expression_registry.py`)
 The expression registry is the central mechanism that prevents the LLM from hallucinating physics equations. It works as a shared memory between the tools and the agent.
@@ -80,11 +92,15 @@ AI_QuantumMechanic/
 │   ├── routing.py            # Conditional edge logic
 │   ├── sanitizer.py          # Last-resort text sanitizer for failed checks
 │   └── state.py              # AgentState TypedDict definition
+├── data/                     # Equation data (JSON)
+│   └── equations/            # 7 category files, 43 equations
 ├── tools/                    # All tool implementations
 │   ├── symbolic_math.py      # SymPy wrapper (20+ operations)
 │   ├── numerical_compute.py  # SciPy/NumPy numerical methods
 │   ├── plot_results.py       # Matplotlib plotting
-│   ├── equations.py          # Equation catalog
+│   ├── equations.py          # Equation lookup tool (list/get/search)
+│   ├── catalog_loader.py     # Loads JSON equations into unified dict
+│   ├── vector_store.py       # ChromaDB semantic search
 │   ├── expression_registry.py # Opaque key-value expression store
 │   ├── special_functions.py  # QM special functions
 │   └── definitions.py        # Tool JSON schemas for the Anthropic API
@@ -97,7 +113,8 @@ AI_QuantumMechanic/
 │   ├── quantum_harmonic_oscillator.py
 │   └── finite_square_well.py
 ├── tests/                    # Unit tests
-│   └── test_core.py
+│   ├── test_core.py
+│   └── test_rag.py           # RAG pipeline tests (28 tests)
 ├── diagram/                  # Architecture diagrams
 ├── outputs/                  # Generated figures and logs
 │   ├── figures/
@@ -118,6 +135,7 @@ scipy
 numpy
 matplotlib
 python-dotenv
+chromadb
 ```
 
 ## Setup and Running
