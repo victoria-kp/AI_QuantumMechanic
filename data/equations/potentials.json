@@ -1,0 +1,83 @@
+{
+  "harmonic_oscillator_potential": {
+    "name": "Quantum Harmonic Oscillator Potential",
+    "expression": "Rational(1,2)*m*omega**2*x**2",
+    "description": "V(x) = (1/2) m omega^2 x^2",
+    "variables": "x",
+    "symbols_used": ["m", "omega"],
+    "tags": ["potential", "harmonic_oscillator"],
+    "search_text": "Quantum harmonic oscillator potential parabolic quadratic spring force constant frequency omega vibration molecular bond phonon"
+  },
+  "coulomb_potential": {
+    "name": "Coulomb Potential",
+    "expression": "-Z*e**2/(4*pi*epsilon_0*r)",
+    "description": "V(r) = -Z e^2 / (4 pi epsilon_0 r) for hydrogen-like atoms.",
+    "variables": "r",
+    "symbols_used": ["Z", "r"],
+    "tags": ["potential", "coulomb", "hydrogen"],
+    "search_text": "Coulomb potential electrostatic attraction electron nucleus hydrogen-like atom charge inverse r 1/r electric field SI units"
+  },
+  "coulomb_potential_natural": {
+    "name": "Coulomb Potential (Natural / Atomic Units)",
+    "expression": "-Z/r",
+    "description": "V(r) = -Z/r in atomic units (e = 4 pi epsilon_0 = 1).",
+    "variables": "r",
+    "symbols_used": ["Z", "r"],
+    "tags": ["potential", "coulomb", "hydrogen", "atomic_units"],
+    "search_text": "Coulomb potential natural units atomic units simplified hydrogen-like atom nuclear charge Z inverse r"
+  },
+  "infinite_square_well_potential": {
+    "name": "Infinite Square Well Potential",
+    "expression": "Piecewise((0, (x >= 0) & (x <= a)), (oo, True))",
+    "description": "V(x) = 0 for 0 <= x <= a, infinity otherwise (particle in a box).",
+    "variables": "x",
+    "symbols_used": ["a"],
+    "tags": ["potential", "square_well", "particle_in_box"],
+    "search_text": "Infinite square well particle in a box rigid walls potential well confined particle standing waves quantized energy levels PIB"
+  },
+  "finite_square_well_potential": {
+    "name": "Finite Square Well Potential",
+    "expression": "Piecewise((-V0, (x >= -a) & (x <= a)), (0, True))",
+    "description": "V(x) = -V0 for |x| <= a, 0 otherwise.",
+    "variables": "x",
+    "symbols_used": ["V0", "a"],
+    "tags": ["potential", "square_well", "finite"],
+    "search_text": "Finite square well potential bound states tunneling evanescent wave penetration depth transcendental equation finite depth"
+  },
+  "step_potential": {
+    "name": "Step Potential",
+    "expression": "Piecewise((0, x < 0), (V0, x >= 0))",
+    "description": "V(x) = 0 for x < 0, V0 for x >= 0.",
+    "variables": "x",
+    "symbols_used": ["V0"],
+    "tags": ["potential", "step", "scattering"],
+    "search_text": "Step potential barrier scattering reflection transmission coefficient discontinuity abrupt potential change quantum tunneling"
+  },
+  "delta_function_potential": {
+    "name": "Delta Function Potential",
+    "expression": "-V0 * DiracDelta(x)",
+    "description": "V(x) = -V0 delta(x), an attractive delta-function potential.",
+    "variables": "x",
+    "symbols_used": ["V0"],
+    "tags": ["potential", "delta_function"],
+    "search_text": "Delta function potential Dirac delta point interaction attractive well single bound state scattering impurity contact interaction"
+  },
+  "double_well_potential": {
+    "name": "Double Well Potential",
+    "expression": "a_coeff*(x**2 - x0**2)**2",
+    "description": "V(x) = a*(x^2 - x0^2)^2, a symmetric double-well quartic potential with minima at x = +/- x0.",
+    "variables": "x",
+    "symbols_used": ["a_coeff", "x0"],
+    "tags": ["potential", "double_well", "tunneling"],
+    "search_text": "Double well potential quartic symmetric tunneling splitting bistable two-state system quantum tunneling barrier ammonia molecule"
+  },
+  "morse_potential": {
+    "name": "Morse Potential",
+    "expression": "D_e*(1 - exp(-alpha*(r - r_e)))**2",
+    "description": "V(r) = D_e(1 - e^{-alpha(r-r_e)})^2, models anharmonic molecular vibrations with dissociation energy D_e.",
+    "variables": "r",
+    "symbols_used": ["D_e", "alpha", "r_e"],
+    "tags": ["potential", "molecular", "anharmonic"],
+    "search_text": "Morse potential anharmonic oscillator molecular vibration diatomic dissociation energy bond stretching spectroscopy vibrational levels"
+  }
+}

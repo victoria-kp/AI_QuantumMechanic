@@ -1,0 +1,56 @@
+{
+  "first_order_energy_correction": {
+    "name": "First-Order Energy Correction (Perturbation Theory)",
+    "expression": "Integral(conjugate(psi_n) * H_prime * psi_n, (x, -oo, oo))",
+    "description": "E_n^(1) = <n|H'|n>, the first-order correction to the energy in time-independent perturbation theory.",
+    "variables": "x",
+    "symbols_used": ["psi_n", "H_prime"],
+    "tags": ["perturbation_theory", "energy_correction", "first_order"],
+    "search_text": "First order energy correction perturbation theory expectation value perturbing Hamiltonian H prime non-degenerate Rayleigh-Schrodinger matrix element diagonal"
+  },
+  "second_order_energy_correction": {
+    "name": "Second-Order Energy Correction (Perturbation Theory)",
+    "expression": "Sum(Abs(H_prime_mn)**2 / (E_n0 - E_m0), (m_idx, 0, oo))",
+    "description": "E_n^(2) = sum_{m != n} |<m|H'|n>|^2 / (E_n^0 - E_m^0). Second-order correction to the energy. Sum excludes m = n.",
+    "variables": "",
+    "symbols_used": ["H_prime_mn", "E_n0", "E_m0", "m_idx"],
+    "tags": ["perturbation_theory", "energy_correction", "second_order"],
+    "search_text": "Second order energy correction perturbation theory matrix elements off-diagonal transition amplitude denominator energy gap level repulsion"
+  },
+  "first_order_state_correction": {
+    "name": "First-Order State Correction (Perturbation Theory)",
+    "expression": "Sum(H_prime_mn / (E_n0 - E_m0) * psi_m, (m_idx, 0, oo))",
+    "description": "|n^(1)> = sum_{m != n} <m|H'|n>/(E_n^0 - E_m^0) |m>. First-order correction to the state vector. Sum excludes m = n.",
+    "variables": "",
+    "symbols_used": ["H_prime_mn", "E_n0", "E_m0", "psi_m", "m_idx"],
+    "tags": ["perturbation_theory", "state_correction", "first_order"],
+    "search_text": "First order state correction wavefunction perturbation theory mixing coefficient admixture superposition perturbed state vector"
+  },
+  "variational_upper_bound": {
+    "name": "Variational Principle (Upper Bound)",
+    "expression": "Integral(conjugate(psi_trial) * H_op * psi_trial, (x, -oo, oo)) / Integral(conjugate(psi_trial) * psi_trial, (x, -oo, oo))",
+    "description": "E_gs <= <psi_trial|H|psi_trial> / <psi_trial|psi_trial>. The expectation value of H in any trial state gives an upper bound to the ground state energy.",
+    "variables": "x",
+    "symbols_used": ["psi_trial", "H_op"],
+    "tags": ["variational", "ground_state", "approximation"],
+    "search_text": "Variational principle upper bound ground state energy Rayleigh-Ritz trial wavefunction minimize expectation value optimization variational method"
+  },
+  "wkb_quantization": {
+    "name": "WKB Quantization Condition",
+    "expression": "Integral(sqrt(2*m*(E - V)), (x, x1, x2)) - (n + Rational(1,2))*pi*hbar",
+    "description": "Integral of p(x) dx from x1 to x2 = (n + 1/2) pi hbar. Bohr-Sommerfeld quantization in the WKB approximation. x1, x2 are classical turning points.",
+    "variables": "x",
+    "symbols_used": ["m", "E", "V", "x1", "x2", "n", "hbar"],
+    "tags": ["wkb", "semiclassical", "approximation"],
+    "search_text": "WKB quantization condition semiclassical approximation Bohr Sommerfeld turning points phase integral action quantization JWKB Wentzel Kramers Brillouin"
+  },
+  "fermis_golden_rule": {
+    "name": "Fermi's Golden Rule",
+    "expression": "2*pi/hbar * Abs(H_prime_fi)**2 * rho_E",
+    "description": "Gamma = (2*pi/hbar) |<f|H'|i>|^2 rho(E), the transition rate from initial to final state under a perturbation. rho_E is the density of final states.",
+    "variables": "",
+    "symbols_used": ["hbar", "H_prime_fi", "rho_E"],
+    "tags": ["perturbation_theory", "transition_rate", "time_dependent"],
+    "search_text": "Fermi golden rule transition rate probability per unit time matrix element density of states time-dependent perturbation theory decay rate scattering absorption emission"
+  }
+}

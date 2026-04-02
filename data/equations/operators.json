@@ -1,0 +1,56 @@
+{
+  "momentum_operator_1d": {
+    "name": "Momentum Operator (1D)",
+    "expression": "-I*hbar*Derivative(f(x), x)",
+    "description": "p_hat = -i hbar d/dx",
+    "variables": "x",
+    "symbols_used": ["hbar"],
+    "tags": ["operator", "momentum"],
+    "search_text": "Momentum operator one dimension p hat differential operator canonical quantization observable Hermitian linear momentum"
+  },
+  "kinetic_energy_operator_1d": {
+    "name": "Kinetic Energy Operator (1D)",
+    "expression": "-hbar**2/(2*m) * Derivative(f(x), x, 2)",
+    "description": "T_hat = -hbar^2 / (2m) d^2/dx^2",
+    "variables": "x",
+    "symbols_used": ["hbar", "m"],
+    "tags": ["operator", "kinetic_energy"],
+    "search_text": "Kinetic energy operator one dimension second derivative Laplacian free particle Hamiltonian T hat"
+  },
+  "position_operator": {
+    "name": "Position Operator",
+    "expression": "x * f(x)",
+    "description": "x_hat psi(x) = x * psi(x). In position representation, the position operator is simply multiplication by x.",
+    "variables": "x",
+    "symbols_used": [],
+    "tags": ["operator", "position"],
+    "search_text": "Position operator coordinate multiplication operator observable Hermitian eigenvalue eigenfunction Dirac delta position representation"
+  },
+  "angular_momentum_z_operator": {
+    "name": "Angular Momentum z-component Operator",
+    "expression": "-I*hbar*Derivative(f(phi), phi)",
+    "description": "L_z = -i hbar d/d(phi) in spherical coordinates.",
+    "variables": "phi",
+    "symbols_used": ["hbar"],
+    "tags": ["operator", "angular_momentum", "spherical"],
+    "search_text": "Angular momentum z component operator azimuthal angle phi spherical coordinates magnetic quantum number rotation generator L_z"
+  },
+  "hamiltonian_operator_1d": {
+    "name": "Hamiltonian Operator (1D)",
+    "expression": "-hbar**2/(2*m) * Derivative(f(x), x, 2) + V * f(x)",
+    "description": "H_hat = T_hat + V_hat = -hbar^2/(2m) d^2/dx^2 + V(x). Total energy operator.",
+    "variables": "x",
+    "symbols_used": ["hbar", "m", "V"],
+    "tags": ["operator", "hamiltonian", "energy"],
+    "search_text": "Hamiltonian operator total energy kinetic plus potential generator time evolution Hermitian observable H hat spectrum eigenvalues"
+  },
+  "number_operator": {
+    "name": "Number Operator (Harmonic Oscillator)",
+    "expression": "a_dag * a_op",
+    "description": "N = a_dagger * a, the number operator for the quantum harmonic oscillator. Eigenvalues are n = 0, 1, 2, ...",
+    "variables": "",
+    "symbols_used": ["a_dag", "a_op"],
+    "tags": ["operator", "harmonic_oscillator", "creation_annihilation"],
+    "search_text": "Number operator creation annihilation ladder operators raising lowering Fock states occupation number harmonic oscillator a dagger a second quantization"
+  }
+}

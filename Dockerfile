@@ -12,9 +12,10 @@ COPY app.py .
 COPY agent/ agent/
 COPY tools/ tools/
 COPY checkers/ checkers/
+COPY data/ data/
 
 # Create outputs directory for generated plots
-RUN mkdir -p outputs/figures outputs/logs
+RUN mkdir -p outputs/figures outputs/logs data/chroma_db
 
 EXPOSE 8000
 

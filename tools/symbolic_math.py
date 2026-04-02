@@ -370,7 +370,8 @@ def run_symbolic_math(
 
         # ── substitute: resolve catalog/registry keys ────────────
         if operation == "substitute":
-            from .equations import resolve_expression, EQUATION_CATALOG
+            from .equations import resolve_expression
+            from .catalog_loader import get_catalog
 
             eq_key = kwargs.get("equation_key", "")
             substitutions = kwargs.get("substitutions") or {}
@@ -398,7 +399,7 @@ def run_symbolic_math(
                         return _error(
                             f"Unknown equation_key: '{eq_key}'. "
                             f"Available catalog: "
-                            f"{list(EQUATION_CATALOG.keys())}. "
+                            f"{list(get_catalog().keys())}. "
                             f"For registry keys use "
                             f"expression_key instead."
                         )

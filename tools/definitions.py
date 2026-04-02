@@ -862,7 +862,10 @@ TOOLS = [
             "by tag). Returns name, key, description, tags for each.\n"
             "- get: Retrieve metadata for a specific equation by its "
             "canonical key. Returns key, name, description, variables, "
-            "symbols_used, tags, and usage instructions.\n\n"
+            "symbols_used, tags, and usage instructions.\n"
+            "- search: Semantic search over the catalog using natural "
+            "language. Returns ranked results with relevance scores. "
+            "Use this when you don't know the exact equation key.\n\n"
             "Returns: {\"result\": <list or dict>, \"success\": bool, "
             "\"error\": str | null}"
         ),
@@ -871,11 +874,12 @@ TOOLS = [
             "properties": {
                 "operation": {
                     "type": "string",
-                    "enum": ["list", "get"],
+                    "enum": ["list", "get", "search"],
                     "description": (
                         "'list' to see available equations "
                         "(optionally filtered by tag), "
-                        "'get' to retrieve a specific equation by key."
+                        "'get' to retrieve a specific equation by key, "
+                        "'search' for semantic search using natural language."
                     )
                 },
                 "name": {
@@ -890,9 +894,25 @@ TOOLS = [
                 "tag": {
                     "type": "string",
                     "description": (
-                        "[list] Optional tag to filter equations. "
+                        "[list/search] Optional tag to filter equations. "
                         "Examples: 'potential', 'schrodinger', "
                         "'hydrogen', 'operator', 'angular_momentum'."
+                    )
+                },
+                "query": {
+                    "type": "string",
+                    "description": (
+                        "[search] Natural-language search query. "
+                        "Example: 'particle in a box', "
+                        "'energy of hydrogen atom', "
+                        "'magnetic field interaction'."
+                    )
+                },
+                "n_results": {
+                    "type": "integer",
+                    "description": (
+                        "[search] Maximum number of results to return. "
+                        "Default: 5."
                     )
                 }
             },

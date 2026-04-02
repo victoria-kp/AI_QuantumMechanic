@@ -1,0 +1,47 @@
+{
+  "time_independent_schrodinger_1d": {
+    "name": "Time-Independent Schrodinger Equation (1D)",
+    "expression": "-hbar**2/(2*m) * f(x).diff(x, 2) + V*f(x) - E*f(x)",
+    "description": "H psi = E psi in one dimension. Set this expression equal to zero and solve for f(x) with an appropriate potential V.",
+    "variables": "x",
+    "symbols_used": ["hbar", "m", "E", "V"],
+    "tags": ["schrodinger", "fundamental", "1d"],
+    "search_text": "Time-independent Schrodinger equation one dimension stationary state eigenvalue problem H psi equals E psi energy eigenfunction TISE standing wave bound state"
+  },
+  "time_dependent_schrodinger_1d": {
+    "name": "Time-Dependent Schrodinger Equation (1D)",
+    "expression": "I*hbar*f(x,t).diff(t) + hbar**2/(2*m)*f(x,t).diff(x,2) - V*f(x,t)",
+    "description": "i*hbar * d psi/dt = H psi in 1D. Expression equals zero when the equation is satisfied.",
+    "variables": "x,t",
+    "symbols_used": ["hbar", "m", "V"],
+    "tags": ["schrodinger", "fundamental", "time_dependent", "1d"],
+    "search_text": "Time-dependent Schrodinger equation one dimension evolution dynamics propagation wavefunction time TDSE unitary evolution quantum dynamics"
+  },
+  "radial_schrodinger_equation": {
+    "name": "Radial Schrodinger Equation",
+    "expression": "-hbar**2/(2*m) * (f(r).diff(r,2) + 2/r * f(r).diff(r)) + (hbar**2*l*(l+1))/(2*m*r**2)*f(r) + V*f(r) - E*f(r)",
+    "description": "Radial part of the 3D Schrodinger equation in spherical coordinates for R(r). Set equal to zero.",
+    "variables": "r",
+    "symbols_used": ["hbar", "m", "l", "E", "V"],
+    "tags": ["schrodinger", "radial", "3d", "spherical"],
+    "search_text": "Radial Schrodinger equation spherical coordinates three dimensions centrifugal barrier effective potential central force angular momentum quantum number l"
+  },
+  "time_independent_schrodinger_3d": {
+    "name": "Time-Independent Schrodinger Equation (3D Cartesian)",
+    "expression": "-hbar**2/(2*m) * (f(x,y,z).diff(x,2) + f(x,y,z).diff(y,2) + f(x,y,z).diff(z,2)) + V*f(x,y,z) - E*f(x,y,z)",
+    "description": "H psi = E psi in three Cartesian dimensions. Set equal to zero. The Laplacian acts on psi(x,y,z).",
+    "variables": "x,y,z",
+    "symbols_used": ["hbar", "m", "E", "V"],
+    "tags": ["schrodinger", "fundamental", "3d", "cartesian"],
+    "search_text": "Time-independent Schrodinger equation three dimensions 3D Cartesian Laplacian stationary state eigenvalue problem TISE three-dimensional"
+  },
+  "schrodinger_equation_momentum_space": {
+    "name": "Schrodinger Equation (Momentum Space, Free Particle)",
+    "expression": "p**2/(2*m) * phi_p - E * phi_p",
+    "description": "Free-particle Schrodinger equation in momentum representation. phi(p) is the momentum-space wavefunction. Set equal to zero.",
+    "variables": "",
+    "symbols_used": ["p", "m", "E", "phi_p"],
+    "tags": ["schrodinger", "momentum_space", "free_particle"],
+    "search_text": "Schrodinger equation momentum space representation Fourier transform free particle momentum wavefunction p-space"
+  }
+}

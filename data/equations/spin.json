@@ -1,0 +1,74 @@
+{
+  "pauli_matrix_x": {
+    "name": "Pauli Matrix sigma_x",
+    "expression": "Matrix([[0, 1], [1, 0]])",
+    "description": "sigma_x, the Pauli spin matrix for the x-component. Eigenvalues +1 and -1.",
+    "variables": "",
+    "symbols_used": [],
+    "tags": ["spin", "pauli_matrix", "matrix"],
+    "search_text": "Pauli matrix sigma x spin operator x component two-level system qubit SU(2) generator spin-1/2 spinor"
+  },
+  "pauli_matrix_y": {
+    "name": "Pauli Matrix sigma_y",
+    "expression": "Matrix([[0, -I], [I, 0]])",
+    "description": "sigma_y, the Pauli spin matrix for the y-component. Eigenvalues +1 and -1.",
+    "variables": "",
+    "symbols_used": [],
+    "tags": ["spin", "pauli_matrix", "matrix"],
+    "search_text": "Pauli matrix sigma y spin operator y component imaginary antisymmetric two-level system SU(2) generator spin-1/2"
+  },
+  "pauli_matrix_z": {
+    "name": "Pauli Matrix sigma_z",
+    "expression": "Matrix([[1, 0], [0, -1]])",
+    "description": "sigma_z, the Pauli spin matrix for the z-component. Eigenvalues +1 and -1.",
+    "variables": "",
+    "symbols_used": [],
+    "tags": ["spin", "pauli_matrix", "matrix"],
+    "search_text": "Pauli matrix sigma z spin operator z component diagonal measurement basis computational basis spin up spin down qubit"
+  },
+  "spin_squared_eigenvalue": {
+    "name": "Spin Angular Momentum Squared Eigenvalue",
+    "expression": "hbar**2 * s*(s+1)",
+    "description": "Eigenvalue of S^2: hbar^2 s(s+1). For electrons, s = 1/2 gives S^2 = (3/4) hbar^2.",
+    "variables": "",
+    "symbols_used": ["hbar", "s"],
+    "tags": ["spin", "eigenvalue", "angular_momentum"],
+    "search_text": "Spin angular momentum squared eigenvalue S squared intrinsic spin quantum number half-integer fermion boson total spin"
+  },
+  "spin_z_eigenvalue": {
+    "name": "Spin z-component Eigenvalue",
+    "expression": "hbar * m_s",
+    "description": "Eigenvalue of S_z: hbar * m_s, where m_s = -s, -s+1, ..., s-1, s. For electrons, m_s = +/- 1/2.",
+    "variables": "",
+    "symbols_used": ["hbar", "m_s"],
+    "tags": ["spin", "eigenvalue", "angular_momentum"],
+    "search_text": "Spin z component eigenvalue magnetic spin quantum number m_s projection spin up down Stern-Gerlach measurement"
+  },
+  "zeeman_energy": {
+    "name": "Zeeman Effect Energy Shift",
+    "expression": "-mu_B * g_J * m_j * B",
+    "description": "E_Zeeman = -mu_B * g_J * m_j * B, energy shift in a uniform magnetic field B. g_J is the Lande g-factor, mu_B the Bohr magneton.",
+    "variables": "",
+    "symbols_used": ["mu_B", "g_J", "m_j", "B"],
+    "tags": ["spin", "magnetic_field", "zeeman", "perturbation"],
+    "search_text": "Zeeman effect energy shift magnetic field splitting Lande g-factor Bohr magneton spectral line splitting anomalous normal Zeeman m_j"
+  },
+  "larmor_frequency": {
+    "name": "Larmor Precession Frequency",
+    "expression": "e*B_field/(2*m_e)",
+    "description": "omega_L = eB/(2m_e), the Larmor frequency at which a magnetic moment precesses around an external magnetic field.",
+    "variables": "",
+    "symbols_used": ["e", "B_field", "m_e"],
+    "tags": ["spin", "magnetic_field", "precession"],
+    "search_text": "Larmor precession frequency magnetic moment gyroscope spin precession cyclotron magnetic field electron gyromagnetic ratio NMR MRI"
+  },
+  "spin_orbit_coupling": {
+    "name": "Spin-Orbit Coupling Energy",
+    "expression": "A_so/2 * (j*(j+1) - l*(l+1) - s*(s+1))",
+    "description": "E_SO = (A/2)[j(j+1) - l(l+1) - s(s+1)], the spin-orbit interaction energy. A_so is the spin-orbit coupling constant.",
+    "variables": "",
+    "symbols_used": ["A_so", "j", "l", "s"],
+    "tags": ["spin", "spin_orbit", "fine_structure"],
+    "search_text": "Spin-orbit coupling interaction energy fine structure LS coupling total angular momentum j quantum number relativistic correction Thomas precession spectral doublet"
+  }
+}

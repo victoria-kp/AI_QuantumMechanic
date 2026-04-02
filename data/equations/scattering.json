@@ -1,0 +1,47 @@
+{
+  "born_approximation": {
+    "name": "Born Approximation Scattering Amplitude",
+    "expression": "-m/(2*pi*hbar**2) * Integral(V_scat * exp(-I*q*r_prime) * 4*pi*r_prime**2, (r_prime, 0, oo))",
+    "description": "f(theta) ~ -(m/2pi*hbar^2) integral V(r') e^{-iq.r'} d^3r', the first Born approximation for the scattering amplitude. q is the momentum transfer.",
+    "variables": "r_prime",
+    "symbols_used": ["m", "hbar", "V_scat", "q"],
+    "tags": ["scattering", "born_approximation", "amplitude"],
+    "search_text": "Born approximation scattering amplitude first order perturbation Fourier transform potential weak scattering cross section momentum transfer"
+  },
+  "transmission_coefficient_barrier": {
+    "name": "Transmission Coefficient (Rectangular Barrier)",
+    "expression": "1 / (1 + V0**2 * sin(k2*a)**2 / (4*E*(E - V0)))",
+    "description": "T for a rectangular barrier of height V0 and width a when E > V0. k2 = sqrt(2m(E-V0))/hbar.",
+    "variables": "",
+    "symbols_used": ["V0", "E", "k2", "a"],
+    "tags": ["scattering", "transmission", "tunneling", "barrier"],
+    "search_text": "Transmission coefficient rectangular barrier quantum tunneling probability resonance Ramsauer-Townsend effect transparency barrier penetration"
+  },
+  "reflection_coefficient": {
+    "name": "Reflection Coefficient",
+    "expression": "1 - T_coeff",
+    "description": "R = 1 - T, the reflection coefficient. Conservation of probability requires R + T = 1.",
+    "variables": "",
+    "symbols_used": ["T_coeff"],
+    "tags": ["scattering", "reflection"],
+    "search_text": "Reflection coefficient probability conservation scattering barrier step potential reflected wave current density unitarity"
+  },
+  "partial_wave_cross_section": {
+    "name": "Partial Wave Cross Section",
+    "expression": "4*pi/k**2 * (2*l + 1) * sin(delta_l)**2",
+    "description": "sigma_l = (4 pi / k^2)(2l+1) sin^2(delta_l), contribution to the total cross section from the l-th partial wave.",
+    "variables": "",
+    "symbols_used": ["k", "l", "delta_l"],
+    "tags": ["scattering", "partial_wave", "cross_section"],
+    "search_text": "Partial wave cross section phase shift angular momentum scattering total cross section optical theorem unitarity limit s-wave p-wave"
+  },
+  "optical_theorem": {
+    "name": "Optical Theorem",
+    "expression": "4*pi/k * im_f0",
+    "description": "sigma_total = (4 pi / k) Im[f(0)], relates the total cross section to the forward scattering amplitude.",
+    "variables": "",
+    "symbols_used": ["k", "im_f0"],
+    "tags": ["scattering", "optical_theorem", "cross_section"],
+    "search_text": "Optical theorem total cross section forward scattering amplitude imaginary part unitarity probability conservation shadow scattering"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "hydrogen_radial_equation": {
+    "name": "Hydrogen Atom Radial Equation (reduced)",
+    "expression": "f(r).diff(r,2) + 2/r*f(r).diff(r) - l*(l+1)/r**2*f(r) + 2*m/(hbar**2)*(E + Z/r)*f(r)",
+    "description": "Radial Schrodinger equation for hydrogen-like atoms. Set equal to zero.",
+    "variables": "r",
+    "symbols_used": ["l", "m", "hbar", "E", "Z"],
+    "tags": ["hydrogen", "radial", "schrodinger"],
+    "search_text": "Hydrogen atom radial equation Schrodinger Coulomb potential Laguerre polynomials radial wavefunction nuclear charge Z hydrogen-like"
+  },
+  "hydrogen_energy_levels": {
+    "name": "Hydrogen Atom Energy Levels",
+    "expression": "-m_e*e**4/(2*hbar**2) * 1/n**2",
+    "description": "E_n = -m_e e^4 / (2 hbar^2) * 1/n^2 = -13.6 eV / n^2 for hydrogen. Principal quantum number n = 1, 2, 3, ...",
+    "variables": "",
+    "symbols_used": ["m_e", "e", "hbar", "n"],
+    "tags": ["hydrogen", "energy_levels", "eigenvalue"],
+    "search_text": "Hydrogen energy levels Bohr model Rydberg formula 13.6 eV principal quantum number n spectrum Lyman Balmer Paschen series ionization"
+  },
+  "bohr_radius": {
+    "name": "Bohr Radius",
+    "expression": "hbar**2 / (m_e * e**2)",
+    "description": "a_0 = hbar^2 / (m_e * e^2) in Gaussian units, approximately 0.529 Angstroms. Characteristic length scale of hydrogen atom.",
+    "variables": "",
+    "symbols_used": ["hbar", "m_e", "e"],
+    "tags": ["hydrogen", "fundamental", "atomic_units"],
+    "search_text": "Bohr radius atomic length scale hydrogen ground state size 0.529 Angstrom characteristic distance orbital a naught a_0"
+  },
+  "rydberg_formula": {
+    "name": "Rydberg Formula",
+    "expression": "R_inf * (1/n1**2 - 1/n2**2)",
+    "description": "1/lambda = R_inf * (1/n1^2 - 1/n2^2), gives the wavenumber of spectral lines in hydrogen. R_inf is the Rydberg constant.",
+    "variables": "",
+    "symbols_used": ["R_inf", "n1", "n2"],
+    "tags": ["hydrogen", "spectroscopy", "spectral_lines"],
+    "search_text": "Rydberg formula spectral lines hydrogen spectrum wavenumber wavelength Lyman Balmer Paschen Brackett series transition Rydberg constant"
+  }
+}
